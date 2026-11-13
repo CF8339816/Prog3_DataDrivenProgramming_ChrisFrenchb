@@ -16,16 +16,16 @@ namespace Prog3DataDrivenProgramming_ChrisFrench
     public class ArchSpecies
 
     {
-        public string Vision { get; }
-        public string SpeciesTitle { get; }
-        public int HpBonusSpecies { get; }
-        public string BonusSpellsSpecies1 { get; }
-        public string BonusSpellsSpecies2 { get; }
-        public int ACbonusSpecies { get; }
-        public int ManaBonusSpecies { get; }
+        public string Vision { get; set; }
+        public string SpeciesTitle { get; set; }
+        public int HpBonusSpecies { get; set; }
+        public string BonusSpellsSpecies1 { get; set; }
+        public string BonusSpellsSpecies2 { get; set; }
+        public int ACbonusSpecies { get; set; }
+        public int ManaBonusSpecies { get; set; }
 
 
-        private ArchSpecies(string vision,string speciesTitle, int HpBspecies,int MPBonusSpecies, string bonusSpellsSpecies1, string bonusSpellsSpecies2, int acBonusSpecies)
+        public ArchSpecies(string vision,string speciesTitle, int HpBspecies,int MPBonusSpecies, string bonusSpellsSpecies1, string bonusSpellsSpecies2, int acBonusSpecies)
         {
 
             Vision = vision;

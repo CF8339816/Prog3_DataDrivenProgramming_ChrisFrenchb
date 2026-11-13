@@ -21,27 +21,25 @@ namespace Prog3DataDrivenProgramming_ChrisFrench
     public class ArchType
     {
 
-        public string DefaultName { get; }
-
-        public string JobTitle { get; }
-       
-        public ArchSpecies DefaultSpecies { get; }
-        public int HpBonusPerLevel { get; }
-        public int AtHp { get; }
-        public string Species { get; }
-        public int MaxSpellLevel1 { get; }
-        public int MaxSpellLevel2 { get; }
-        public int MagicType1 { get; } //0= no magic, 1= Elemental, 2= Arcane, 3= Nature, 4= Holy, 5= Healing, 6= Illusion
-        public int MagicType2 { get; }//0= no magic, 1= Elemental, 2= Arcane, 3= Nature, 4= Holy, 5= Healing, 6= Illusion
-        public int XPtoLevelMultiplier { get; }
+        public string DefaultName { get; set; }
+        public string JobTitle { get; set; }
+        public ArchSpecies DefaultSpecies { get; set; }
+        public int HpBonusPerLevel { get; set; }
+        public int AtHp { get; set; }
+        public string Species { get; set; }
+        public int MaxSpellLevel1 { get; set; }
+        public int MaxSpellLevel2 { get; set; }
+        public int MagicType1 { get; set; }//0= no magic, 1= Elemental, 2= Arcane, 3= Nature, 4= Holy, 5= Healing, 6= Illusion
+        public int MagicType2 { get; set; }//0= no magic, 1= Elemental, 2= Arcane, 3= Nature, 4= Holy, 5= Healing, 6= Illusion
+        public int XPtoLevelMultiplier { get; set; }
         public int ArmorType1 { get; set; } //0 = no armor, 1= cloth, 2= leather, 3= chain, 4= plate, all other = default 
         public int ArmorType2 { get; set; } // 0 = no shield, 1 = shield, all other = default
         public int WeaponType1 { get; set; }  // 0 = unarmed, 1= melee, 2 = ranged all else = default
-        public int ArmorBonus { get; }
-        public int AttackBonus { get; }
-        public int ManaBonus { get; }
+        public int ArmorBonus { get; set; }
+        public int AttackBonus { get; set; }
+        public int ManaBonus { get; set; }
 
-        private ArchType(string dName, string jobTitle, int HpBPL, int atHp, int JobAtkBonus,int JobManaBonus, ArchSpecies defSpecies, 
+        public ArchType(string dName, string jobTitle, int HpBPL, int atHp, int JobAtkBonus,int JobManaBonus, ArchSpecies defSpecies, 
             int maxSL1, int maxSL2, int magType1, int magType2, int xp2LMulti, int armorType1, int armorType2, int weaponType1, int ArBonus)
         {
 
