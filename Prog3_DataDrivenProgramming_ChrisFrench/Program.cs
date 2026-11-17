@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Prog3_DataDrivenProgramming_ChrisFrench;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
@@ -22,7 +23,8 @@ using static Prog3DataDrivenProgramming_ChrisFrench.MapLoader;
 using static Prog3DataDrivenProgramming_ChrisFrench.NatureSpells;
 using static Prog3DataDrivenProgramming_ChrisFrench.PC;
 using static Prog3DataDrivenProgramming_ChrisFrench.Program;
-using System.Text.Json;
+//using static Prog3DataDrivenProgramming_ChrisFrench.PremadeCharJson;
+
 
 namespace Prog3DataDrivenProgramming_ChrisFrench
 {
@@ -38,7 +40,7 @@ namespace Prog3DataDrivenProgramming_ChrisFrench
         public static int MaxNameLLength = 15;
         public ArchType _ArchType = HUD.jobType;
         public ArchSpecies _ArchSpecies = HUD.SpeciesChoice;
-
+       
         //  public static MapLoader map = new MapLoader();
 
         #region forced Maximize Startup
@@ -55,7 +57,8 @@ namespace Prog3DataDrivenProgramming_ChrisFrench
 
         static void Main()
         {
-         
+
+          
 
 
             #region Startup Maxixization
@@ -72,6 +75,7 @@ namespace Prog3DataDrivenProgramming_ChrisFrench
            
             HUD.ResizeWarning();
 
+      
             HUD.ChooseMyClass();
             HUD.ChooseMySpecies();
             HUD.NameMyCharacter();
@@ -103,25 +107,13 @@ namespace Prog3DataDrivenProgramming_ChrisFrench
 
 
 
-            //var Settings = new settings
-            //{
-            //    Name = "Walter White",
-            //    Class = "The Cook",
-            //    HP = 9001,
-            //    MP = 10000
-
-            //};
-
-            //string fileName = "PlayerSettings.json";
-            //string jsonString = JsonSerializer.Serialize(Settings);
-            //File.WriteAllText(fileName, jsonString);
-
-            //Console.WriteLine(File.ReadAllText(fileName));
-
 
         }
 
+
+      
     }
+
 }
 
 

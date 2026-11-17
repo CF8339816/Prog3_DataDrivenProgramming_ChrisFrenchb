@@ -6,6 +6,7 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Linq;
+using System.Text.Json;
 using static Prog3DataDrivenProgramming_ChrisFrench.ArchSpecies;
 using static Prog3DataDrivenProgramming_ChrisFrench.ArchType;
 using static Prog3DataDrivenProgramming_ChrisFrench.PC;
@@ -18,12 +19,14 @@ using static Prog3DataDrivenProgramming_ChrisFrench.EquipmentManager;
 
 namespace Prog3DataDrivenProgramming_ChrisFrench
 {
+    //public PremadeCharJson premadeCharJson;
     public class ArchType
     {
 
         public string DefaultName { get; set; }
         public string JobTitle { get; set; }
         public ArchSpecies DefaultSpecies { get; set; }
+
         public int HpBonusPerLevel { get; set; }
         public int AtHp { get; set; }
         public string Species { get; set; }
@@ -73,16 +76,22 @@ namespace Prog3DataDrivenProgramming_ChrisFrench
 
 
 
-
-
-        // player classes
+        // player classes read from Json
         //(defName, jobTitle, HpBPL, atHp, JobAtkBonus, JobManaBonus, defSpecies,maxSL1, maxSL2, magType1, magType2, xp2LMulti, armorType1, armorType2, weaponType1, ArBonus)
-        public static ArchType Paladin => new ArchType("Medrin", "Paladin", 5, 50, 5,3, DragonKin, 3, 0, 4, 0, 13, 4, 0, 1, 5);
-        public static ArchType Bard => new ArchType("Tessa", "Bard", 2, 35, 2,2, DaemonKyne, 3, 6, 5, 6, 11, 2, 0, 1, 2);
+        public static ArchType AT1 => new ArchType("Medrin", "Paladin", 5, 50, 5, 3, DragonKin, 3, 0, 4, 0, 13, 4, 0, 1, 5);
+        public static ArchType AT1 => new ArchType("Tessa", "Bard", 2, 35, 2, 2, DaemonKyne, 3, 6, 5, 6, 11, 2, 0, 1, 2);
         public static ArchType Cleric => new ArchType("Fray", "Cleric", 4, 40, 5, 5, Dwarf, 6, 6, 4, 5, 13, 3, 1, 1, 4);
         public static ArchType Sorcerer => new ArchType("Garth", "Sorcerer", 1, 10, 1, 8, Human, 6, 6, 2, 1, 12, 1, 0, 1, 1);
         public static ArchType Ranger => new ArchType("Nae'O'mii", "Ranger", 3, 30, 4, 2, Elf, 3, 5, 3, 0, 10, 2, 1, 2, 3);
         public static ArchType Rogue => new ArchType("Kayleigh", "Rogue", 2, 20, 3, 1, SmallFolk, 4, 0, 6, 0, 12, 2, 0, 1, 2);
+        //// player classes
+        ////(defName, jobTitle, HpBPL, atHp, JobAtkBonus, JobManaBonus, defSpecies,maxSL1, maxSL2, magType1, magType2, xp2LMulti, armorType1, armorType2, weaponType1, ArBonus)
+        //public static ArchType Paladin => new ArchType("Medrin", "Paladin", 5, 50, 5,3, DragonKin, 3, 0, 4, 0, 13, 4, 0, 1, 5);
+        //public static ArchType Bard => new ArchType("Tessa", "Bard", 2, 35, 2,2, DaemonKyne, 3, 6, 5, 6, 11, 2, 0, 1, 2);
+        //public static ArchType Cleric => new ArchType("Fray", "Cleric", 4, 40, 5, 5, Dwarf, 6, 6, 4, 5, 13, 3, 1, 1, 4);
+        //public static ArchType Sorcerer => new ArchType("Garth", "Sorcerer", 1, 10, 1, 8, Human, 6, 6, 2, 1, 12, 1, 0, 1, 1);
+        //public static ArchType Ranger => new ArchType("Nae'O'mii", "Ranger", 3, 30, 4, 2, Elf, 3, 5, 3, 0, 10, 2, 1, 2, 3);
+        //public static ArchType Rogue => new ArchType("Kayleigh", "Rogue", 2, 20, 3, 1, SmallFolk, 4, 0, 6, 0, 12, 2, 0, 1, 2);
 
 
         //Enemy classes
