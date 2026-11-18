@@ -94,7 +94,7 @@ namespace Prog3DataDrivenProgramming_ChrisFrench
 
             Console.ReadKey(true);
             Console.Clear();
-           MapManager.map.DrawMap();
+            //MapManager.map.DrawMap();
             HUD.PlayerStats(Player);
             HUD.EnemyStats();
             HUD.CombatOutput();

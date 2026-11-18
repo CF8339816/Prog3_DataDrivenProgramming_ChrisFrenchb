@@ -18,7 +18,7 @@ namespace Prog3DataDrivenProgramming_ChrisFrench
      
     {
 
-        private string[] _filePaths = { "map1.txt", "map2.txt"/*, "map3.txt", "map4.txt" */};// creates a string of filep[atths to call tto for creatting the string of strings in all maps
+        private string[] _filePaths = {/*"map1.txt",*/ "map2.txt"/*, "map3.txt", "map4.txt" */};// creates a string of filep[atths to call tto for creatting the string of strings in all maps
         private string[][] _allMaps = new string[2][]; // stores maps in a string of strings so they can be inddexed to move forward and back through them
         public string[] _mapsCurrent; // initiattes ourt usage string for current to draw map from the all maps string
         public int _currentMapIndex = 0; //initiates and sets the default map to display first 
