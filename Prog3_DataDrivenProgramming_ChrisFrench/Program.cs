@@ -40,7 +40,7 @@ namespace Prog3DataDrivenProgramming_ChrisFrench
         public static int MaxNameLLength = 15;
         public ArchType _ArchType = HUD.jobType;
         public ArchSpecies _ArchSpecies = HUD.SpeciesChoice;
-       
+        public PremadeCharJson premadeCharJson;
         //  public static MapLoader map = new MapLoader();
 
         #region forced Maximize Startup
@@ -55,10 +55,12 @@ namespace Prog3DataDrivenProgramming_ChrisFrench
         private const int SW_MAXIMIZE = 3;
         #endregion
 
-        static void Main()
+       public static void Main()
         {
 
-          
+
+           
+
 
 
             #region Startup Maxixization
@@ -71,11 +73,10 @@ namespace Prog3DataDrivenProgramming_ChrisFrench
             }
 
             #endregion
-
-           
+                       
             HUD.ResizeWarning();
+            PremadeCharJson.InitializeAndLoad();//writes json if not currny made  than /or reads valuses from json to the Archtype class
 
-      
             HUD.ChooseMyClass();
             HUD.ChooseMySpecies();
             HUD.NameMyCharacter();
@@ -102,18 +103,10 @@ namespace Prog3DataDrivenProgramming_ChrisFrench
             HUD.Instructions();
             Console.ReadKey(true);
            
-
             GameManager.Gameon();
 
-
-
-
-        }
-
-
-      
+        }      
     }
-
 }
 
 
