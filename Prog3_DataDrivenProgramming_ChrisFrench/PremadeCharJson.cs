@@ -8,6 +8,7 @@ using System.Reflection.Emit;
 using System.Runtime.InteropServices;
 using System.Security.Cryptography;
 using System.Text;
+using System.IO;
 using System.Text.Json;
 using System.Threading;
 using System.Threading.Tasks;
@@ -29,135 +30,139 @@ namespace Prog3_DataDrivenProgramming_ChrisFrench
     public class PremadeCharJson
     {
         //( HpBPL, atHp, JobAtkBonus, JobManaBonus, maxSL1, maxSL2, magType1, magType2, xp2LMulti, armorType1, armorType2, weaponType1, ArBonus)
+        public static PremadeCharJson CurrentData { get; private set; } = new PremadeCharJson();
 
         // pally
-        public static string? AT1 { get; set; }
-        public static string? Name1 { get; set; }
-        public static string? Job1 { get; set; }
-        public static string? Species1 { get; set; }
-        public static int HpBPL_1 { get; set; }
-        public static int atHp_1 { get; set; }
-        public static int JobAtkBonus_1{ get; set; }
-        public static int JobManaBonus_1 { get; set; }
-        public static int maxSL1_1 { get; set; }
-        public static int maxSL2_1 {get; set; }
-        public static int magType1_1 { get; set; }
-        public static int magType2_1 { get; set; }
-        public static int xp2LMulti_1 { get; set; }
-        public static int armorType1_1 { get; set; }
-        public static int armorType2_1 { get; set; }
-        public static int weaponType1_1 { get; set; }
-        public static int ArBonus_1 { get; set; }
+
+        public string? Name1 { get; set; }
+        public string? Job1 { get; set; }
+        public string? Species1 { get; set; }
+        public int HpBPL_1 { get; set; }
+        public int atHp_1 { get; set; }
+        public int JobAtkBonus_1{ get; set; }
+        public int JobManaBonus_1 { get; set; }
+        public int maxSL1_1 { get; set; }
+        public int maxSL2_1 {get; set; }
+        public int magType1_1 { get; set; }
+        public int magType2_1 { get; set; }
+        public int xp2LMulti_1 { get; set; }
+        public int armorType1_1 { get; set; }
+        public int armorType2_1 { get; set; }
+        public int weaponType1_1 { get; set; }
+        public int ArBonus_1 { get; set; }
         
 
 
         // Bard
        
-        public static string? AT2 { get; set; }
-        public static string? Name2 { get; set; }
-        public static string? Job2 { get; set; }
-        public static string? Species2 { get; set; }
-        public static int HpBPL_2 { get; set; }
-        public static int atHp_2 { get; set; }
-        public static int JobAtkBonus_2 { get; set; }
-        public static int JobManaBonus_2 { get; set; }
-        public static int maxSL1_2 { get; set; }
-        public static int maxSL2_2 { get; set; }
-        public static int magType1_2 { get; set; }
-        public static int magType2_2 { get; set; }
-        public static int xp2LMulti_2 { get; set; }
-        public static int armorType1_2 { get; set; }
-        public static int armorType2_2 { get; set; }
-        public static int weaponType1_2 { get; set; }
-        public static int ArBonus_2 { get; set; }
+    
+        public string? Name2 { get; set; }
+        public string? Job2 { get; set; }
+        public string? Species2 { get; set; }
+        public int HpBPL_2 { get; set; }
+        public int atHp_2 { get; set; }
+        public int JobAtkBonus_2 { get; set; }
+        public int JobManaBonus_2 { get; set; }
+        public int maxSL1_2 { get; set; }
+        public int maxSL2_2 { get; set; }
+        public int magType1_2 { get; set; }
+        public int magType2_2 { get; set; }
+        public int xp2LMulti_2 { get; set; }
+        public int armorType1_2 { get; set; }
+        public int armorType2_2 { get; set; }
+        public int weaponType1_2 { get; set; }
+        public int ArBonus_2 { get; set; }
         // Cleric
-        public static string? AT3 { get; set; }
-        public static string? Name3 { get; set; }
-        public static string? Job3 { get; set; }
-        public static string? Species3 { get; set; }
-        public static int HpBPL_3 { get; set; }
-        public static int atHp_3 { get; set; }
-        public static int JobAtkBonus_3 { get; set; }
-        public static int JobManaBonus_3 { get; set; }
-        public static int maxSL1_3 { get; set; }
-        public static int maxSL2_3 { get; set; }
-        public static int magType1_3 { get; set; }
-        public static int magType2_3 { get; set; }
-        public static int xp2LMulti_3 { get; set; }
-        public static int armorType1_3 { get; set; }
-        public static int armorType2_3 { get; set; }
-        public static int weaponType1_3 { get; set; }
-        public static int ArBonus_3 { get; set; }
+    
+        public string? Name3 { get; set; }
+        public string? Job3 { get; set; }
+        public string? Species3 { get; set; }
+        public int HpBPL_3 { get; set; }
+        public int atHp_3 { get; set; }
+        public int JobAtkBonus_3 { get; set; }
+        public int JobManaBonus_3 { get; set; }
+        public int maxSL1_3 { get; set; }
+        public int maxSL2_3 { get; set; }
+        public int magType1_3 { get; set; }
+        public int magType2_3 { get; set; }
+        public int xp2LMulti_3 { get; set; }
+        public int armorType1_3 { get; set; }
+        public int armorType2_3 { get; set; }
+        public int weaponType1_3 { get; set; }
+        public int ArBonus_3 { get; set; }
 
         // Sorcerer 
-        public static string? AT4 { get; set; }
-        public static string? Name4 { get; set; }
-        public static string? Job4 { get; set; }
-        public static string? Species4 { get; set; }
-        public static int HpBPL_4 { get; set; }
-        public static int atHp_4 { get; set; }
-        public static int JobAtkBonus_4 { get; set; }
-        public static int JobManaBonus_4 { get; set; }
-        public static int maxSL1_4 { get; set; }
-        public static int maxSL2_4 { get; set; }
-        public static int magType1_4 { get; set; }
-        public static int magType2_4 { get; set; }
-        public static int xp2LMulti_4 { get; set; }
-        public static int armorType1_4 { get; set; }
-        public static int armorType2_4 { get; set; }
-        public static int weaponType1_4 { get; set; }
-        public static int ArBonus_4 { get; set; }
+    
+        public string? Name4 { get; set; }
+        public string? Job4 { get; set; }
+        public string? Species4 { get; set; }
+        public int HpBPL_4 { get; set; }
+        public int atHp_4 { get; set; }
+        public int JobAtkBonus_4 { get; set; }
+        public int JobManaBonus_4 { get; set; }
+        public int maxSL1_4 { get; set; }
+        public int maxSL2_4 { get; set; }
+        public int magType1_4 { get; set; }
+        public int magType2_4 { get; set; }
+        public int xp2LMulti_4 { get; set; }
+        public int armorType1_4 { get; set; }
+        public int armorType2_4 { get; set; }
+        public int weaponType1_4 { get; set; }
+        public int ArBonus_4 { get; set; }
 
         // ranger
-        public static string? AT5 { get; set; }
-        public static string? Name5 { get; set; }
-        public static string? Job5 { get; set; }
-        public static string? Species5 { get; set; }
-        public static int HpBPL_5 { get; set; }
-        public static int atHp_5 { get; set; }
-        public static int JobAtkBonus_5 { get; set; }
-        public static int JobManaBonus_5 { get; set; }
-        public static int maxSL1_5 { get; set; }
-        public static int maxSL2_5 { get; set; }
-        public static int magType1_5 { get; set; }
-        public static int magType2_5 { get; set; }
-        public static int xp2LMulti_5 { get; set; }
-        public static int armorType1_5 { get; set; }
-        public static int armorType2_5 { get; set; }
-        public static int weaponType1_5 { get; set; }
-        public static int ArBonus_5 { get; set; }
+       
+        public string? Name5 { get; set; }
+        public string? Job5 { get; set; }
+        public string? Species5 { get; set; }
+        public int HpBPL_5 { get; set; }
+        public int atHp_5 { get; set; }
+        public int JobAtkBonus_5 { get; set; }
+        public int JobManaBonus_5 { get; set; }
+        public int maxSL1_5 { get; set; }
+        public int maxSL2_5 { get; set; }
+        public int magType1_5 { get; set; }
+        public int magType2_5 { get; set; }
+        public int xp2LMulti_5 { get; set; }
+        public int armorType1_5 { get; set; }
+        public int armorType2_5 { get; set; }
+        public int weaponType1_5 { get; set; }
+        public int ArBonus_5 { get; set; }
 
          // rogue
-        public static string? AT6 { get; set; }
-        public static string? Name6 { get; set; }
-        public static string? Job6 { get; set; }
-        public static string? Species6 { get; set; }
-        public static int HpBPL_6 { get; set; }
-        public static int atHp_6 { get; set; }
-        public static int JobAtkBonus_6 { get; set; }
-        public static int JobManaBonus_6 { get; set; }
-        public static int maxSL1_6 { get; set; }
-        public static int maxSL2_6 { get; set; }
-        public static int magType1_6 { get; set; }
-        public static int magType2_6 { get; set; }
-        public static int xp2LMulti_6 { get; set; }
-        public static int armorType1_6 { get; set; }
-        public static int armorType2_6 { get; set; }
-        public static int weaponType1_6 { get; set; }
-        public static int ArBonus_6 { get; set; }
+       
+        public string? Name6 { get; set; }
+        public string? Job6 { get; set; }
+        public string? Species6 { get; set; }
+        public int HpBPL_6 { get; set; }
+        public int atHp_6 { get; set; }
+        public int JobAtkBonus_6 { get; set; }
+        public int JobManaBonus_6 { get; set; }
+        public int maxSL1_6 { get; set; }
+        public int maxSL2_6 { get; set; }
+        public int magType1_6 { get; set; }
+        public int magType2_6 { get; set; }
+        public int xp2LMulti_6 { get; set; }
+        public int armorType1_6 { get; set; }
+        public int armorType2_6 { get; set; }
+        public int weaponType1_6 { get; set; }
+        public int ArBonus_6 { get; set; }
 
 
-
-
-
-
-        public void FetchArctypes()
+        public static void InitializeAndLoad()
         {
+            string fileName = "PregenChars.json";
 
-            var premadeCharJson = new PremadeCharJson
+
+
+            if (!File.Exists(fileName))
+            {
+    
+
+            var premadeCharData = new PremadeCharJson
             {
                 //pally
-                AT1 = "Paladin",
+
                 Name1 = "Medrin",
                 Job1 = "Paladin",
                 Species1 = "DragonKin",
@@ -175,8 +180,8 @@ namespace Prog3_DataDrivenProgramming_ChrisFrench
                 weaponType1_1 = 1,
                 ArBonus_1 = 5,
 
-                 //bard
-                AT2 = "Bard",
+                //bard
+             
                 Name2 = "Tessa",
                 Job2 = "Bard",
                 Species2 = "DaemonKyne",
@@ -194,8 +199,8 @@ namespace Prog3_DataDrivenProgramming_ChrisFrench
                 weaponType1_2 = 1,
                 ArBonus_2 = 2,
 
-               //cleric
-                AT3 = "Cleric",
+                //cleric
+
                 Name3 = "Fray",
                 Job3 = "Cleric",
                 Species3 = "Dwarf",
@@ -214,7 +219,7 @@ namespace Prog3_DataDrivenProgramming_ChrisFrench
                 ArBonus_3 = 4,
 
                 //Sorcerer
-                AT4 = "Sorcerer",
+
                 Name4 = "Garth",
                 Job4 = "Sorcerer",
                 Species4 = "Human",
@@ -233,7 +238,7 @@ namespace Prog3_DataDrivenProgramming_ChrisFrench
                 ArBonus_4 = 1,
 
                 //Ranger
-                AT5 = "Ranger",
+
                 Name5 = "Nae'O'mii",
                 Job5 = "Ranger",
                 Species5 = "Elf",
@@ -252,7 +257,7 @@ namespace Prog3_DataDrivenProgramming_ChrisFrench
                 ArBonus_5 = 3,
 
                 // Rogue 
-                AT6 = "Rogue",
+
                 Name6 = "Kayleigh",
                 Job6 = "Rogue",
                 Species6 = "SmallFolk",
@@ -272,11 +277,21 @@ namespace Prog3_DataDrivenProgramming_ChrisFrench
             };
 
 
-            string fileName = "PregenChars.json";
-            string jsonString = JsonSerializer.Serialize(premadeCharJson);
-            File.WriteAllText(fileName, jsonString);
+                //string fileName = "PregenChars.json";
+                //string jsonString = JsonSerializer.Serialize(premadeCharJson);
+                //File.WriteAllText(fileName, jsonString);
 
-            Console.WriteLine(File.ReadAllText(fileName));
+                //Console.WriteLine(File.ReadAllText(fileName));
+
+
+                var options = new JsonSerializerOptions { WriteIndented = true };
+                string jsonString = JsonSerializer.Serialize(premadeCharData, options);
+                File.WriteAllText(fileName, jsonString);
+            }
+
+            // 2. Read the JSON file from disk and deserialize it into CurrentData
+            string loadedJson = File.ReadAllText(fileName);
+            CurrentData = JsonSerializer.Deserialize<PremadeCharJson>(loadedJson) ?? new PremadeCharJson();
 
 
         }
